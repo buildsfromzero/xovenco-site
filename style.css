@@ -1,0 +1,309 @@
+/* Base reset & system fonts */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+:root {
+  --accent: #42f2c2;
+  --primary: #16181d;
+  --secondary: #23242a;
+  --text: #f4f4f5;
+  --muted: #a0a2ad;
+  --cta: #42f2c2;
+  --font-sans: "Inter", "SF Pro Display", "Segoe UI", "Roboto", Arial, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  background: var(--primary);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1.12rem;
+  scroll-behavior: smooth;
+}
+
+a { color: var(--cta); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 16px 0 16px;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-content {
+  z-index: 2;
+  position: relative;
+}
+
+.logo {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 24px;
+  border-radius: 24px;
+  box-shadow: 0 8px 64px var(--accent);
+  object-fit: contain;
+  background: var(--secondary);
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.16em;
+  color: var(--accent);
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0.4em;
+}
+
+.hero-tagline {
+  font-size: 1.15rem;
+  color: var(--muted);
+  margin-bottom: 2em;
+  letter-spacing: 0.08em;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin: 18px auto 0 auto;
+  padding: 0.85em 2.45em;
+  background: var(--accent);
+  color: #222;
+  font-weight: 650;
+  border-radius: 100px;
+  box-shadow: 0 2px 16px rgba(66,242,194,0.14);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  font-size: 1.15rem;
+  border: none;
+}
+.cta-btn:hover {
+  background: #61ffe9;
+  color: #000;
+  transform: translateY(-2px) scale(1.045);
+}
+
+/* Parallax effect for hero background */
+.parallax-bg {
+  position: absolute;
+  top: -30vh; left: -10vw; right: -10vw; bottom: -30vh;
+  background: radial-gradient(circle, #42f2c222 0%, #23242a99 100%);
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
+  filter: blur(28px);
+  transition: filter 0.3s;
+}
+
+/* Section layout */
+.section-header {
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  margin-bottom: 26px;
+  color: var(--accent);
+}
+section {
+  margin: 96px 0 0 0;
+}
+.about-content, .vision-content, .contact-content {
+  max-width: 660px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 1.17rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+.accent {
+  color: var(--accent);
+  font-weight: 600;
+}
+ul {
+  list-style: disc;
+  padding-left: 1.5em;
+  color: var(--text);
+}
+li {
+  line-height: 2;
+  font-size: 1.1em;
+}
+
+/* Product Sections */
+.product {
+  margin: 128px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-content {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 26px;
+}
+.product-content.reverse {
+  flex-direction: row-reverse;
+}
+.product-text {
+  flex: 1 1 340px;
+  min-width: 300px;
+}
+.product-visual {
+  flex: 1 1 240px;
+  min-width: 240px; max-width: 340px;
+  display: flex; align-items: center; justify-content: center;
+}
+.mockup {
+  width: 210px;
+  height: 296px;
+  border-radius: 36px;
+  background: linear-gradient(145deg, #2c387e 10%, #3faaa7 60%, #42f2c2 100%);
+  box-shadow: 0 8px 48px 0 #2c387e66, 0 0px 1.5px 0 var(--accent);
+  animation: floaty 4s ease-in-out infinite alternate;
+  position: relative;
+  overflow: hidden;
+}
+.yuri-mockup:after {
+  content: "Yuri";
+  position: absolute; left: 50%; top: 40%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 2.5rem;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  opacity: 0.91;
+  letter-spacing: 0.07em;
+}
+.koven-mockup {
+  background: linear-gradient(145deg, #5e428f 5%, #ffe365 65%, #fd5793 100%);
+}
+.koven-mockup:after {
+  content: "Koven";
+  position: absolute; left: 50%; top: 40%;
+  transform: translate(-50%, -50%);
+  color: #23242a;
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-family: var(--font-sans);
+  opacity: 0.94;
+  letter-spacing: 0.04em;
+}
+@keyframes floaty {
+  0% {transform: translateY(0px) scale(1);}
+  100% {transform: translateY(-14px) scale(1.033);}
+}
+
+/* Vision section */
+.vision-content {
+  text-align: center;
+  font-size: 1.21rem;
+  color: var(--muted);
+  margin-top: 18px;
+}
+
+/* Contact section */
+.contact-content {
+  text-align: center;
+  margin-top: 18px;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background: var(--secondary);
+  color: var(--muted);
+  padding: 32px 0 12px 0;
+  text-align: center;
+  margin-top: 112px;
+  font-size: 1rem;
+  border-top: 1px solid #282a32;
+}
+.footer-content {
+  display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center;
+}
+@media (min-width: 600px) {
+  .footer-content {flex-direction: row; gap: 32px;}
+}
+
+.footer-links a {
+  color: var(--cta);
+  margin-left: 18px;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px var(--cta),0 0 10px #fff1;
+}
+
+/* Responsive Styles */
+@media (max-width: 990px) {
+  main {padding: 32px 6px 0 6px;}
+  .product-content {
+    flex-direction: column !important;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .product-visual {margin: 0 0 24px 0;}
+}
+@media (max-width: 600px) {
+  h1 { font-size: 2rem;}
+  h2 { font-size: 1.09rem;}
+  .mockup { width: 132px; height: 170px;}
+  .section-header { font-size: 1.28rem;}
+}
+
+/* Custom animated cursor */
+.custom-cursor {
+  position: fixed;
+  left: 0; top: 0;
+  width: 36px; height: 36px;
+  margin-left: -18px; margin-top: -18px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: rgba(66,242,194,0.07);
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.14s cubic-bezier(.77,0,.18,1), border 0.2s;
+  transform: scale(0.84);
+  mix-blend-mode: lighten;
+}
+body.cursor-hover .custom-cursor {
+  transform: scale(1.15);
+  border-color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+a, .cta-btn, button {
+  cursor: pointer;
+}
+a:hover ~ .custom-cursor, .cta-btn:hover ~ .custom-cursor {
+  transform: scale(1.15);
+}
+
+/* Smooth transitions on section reveal */
+section, .footer {
+  opacity: 0;
+  transition: opacity 1.1s cubic-bezier(.77,0,.18,1);
+}
+section.visible, .footer.visible {
+  opacity: 1;
+}
