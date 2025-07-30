@@ -1,128 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="description" content="Xoven Co — Emotionally Intelligent AI for Brands and Creatives">
-  <title>Xoven Co | Emotionally Intelligent AI</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Google Fonts: Inter -->
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,900&display=swap" rel="stylesheet">
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xoven Co – Emotionally Intelligent AI for Brands</title>
+  <meta name="description" content="Xoven Co: futuristic emotional AI for branding, design, and creative intelligence. Experience Yuri AI and Koven AI." />
+  <!-- Tailwind CDN – copy ready, plus custom theme tweaks inline -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+            inter: ['Inter', 'sans-serif']
+          },
+          animation: {
+            fadeIn: 'fadeIn 1.2s ease-out',
+            headingFade: 'headingFade 1.2s cubic-bezier(0.22,1,0.36,1)',
+            parallax: 'parallaxMove 4s infinite alternate ease-in-out',
+          },
+          keyframes: {
+            fadeIn: {
+              from: { opacity: 0, transform: 'translateY(10px)' },
+              to:   { opacity: 1, transform: 'translateY(0)' }
+            },
+            headingFade: {
+              from: { opacity: 0, transform: 'translateY(30px) scale(0.96)' },
+              to:   { opacity: 1, transform: 'translateY(0) scale(1)' }
+            },
+            parallaxMove: {
+              from: { transform: 'translateY(0px) scale(1)' },
+              to:   { transform: 'translateY(-15px) scale(1.04)' }
+            }
+          },
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS extras -->
+  <link href="./style.css" rel="stylesheet">
 </head>
-<body>
-  <!-- Custom animated cursor -->
+<body class="bg-gradient-to-br from-[#0e071a] to-[#1a1c28] text-white antialiased">
+
+  <!-- Custom cursor -->
   <div id="custom-cursor"></div>
 
-  <nav class="navbar">
-    <div class="logo">Xoven Co</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#yuri">Yuri AI</a></li>
-      <li><a href="#koven">Koven AI</a></li>
-      <li><a href="#vision">Vision</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content animate-fadeup">
-      <div class="hero-logo glass">
-        <span>Xoven</span>
-      </div>
-      <h1>Emotionally Intelligent AI for Brands</h1>
-      <p>Shaping the future of branding & creativity, powered by emotion.</p>
-      <a href="#contact" class="btn-primary">Connect with Us</a>
+  <!-- HERO Section -->
+  <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <div id="hero-bg" class="w-full h-full"></div>
     </div>
+    <img src="https://dummyimage.com/96x96/fff/000000&text=X" alt="Xoven Logo" class="mx-auto mb-8 w-24 h-24 rounded-xl shadow-xl animate-fadeIn" />
+    <h1 class="font-montserrat text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-4 drop-shadow-2xl animate-headingFade">
+      Emotionally Intelligent AI for Brands
+    </h1>
+    <p class="max-w-xl mx-auto text-lg md:text-2xl text-gray-300 mb-8 font-inter animate-fadeIn">
+      Meet the future of creative intelligence.<br>
+      AI with feeling, for creators, brands, and dreamers.
+    </p>
+    <a href="#get-early-access" class="group inline-block rounded-full px-8 py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-700 hover:scale-105 transition-transform duration-200 shadow-lg text-xl font-bold tracking-wide text-white animate-fadeIn">
+      Get Early Access
+      <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+    </a>
+    <div class="absolute left-0 bottom-0 w-full h-32 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none"></div>
   </section>
 
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div class="container animate-fadeup">
-      <h2>About Xoven Co</h2>
-      <p>
-        Xoven Co pioneers the next generation of emotionally intelligent AI for creative industries. Our purpose is to humanize technology, merging computational brilliance and heartfelt intuition.
-      </p>
-      <p>
-        We believe great branding is emotional at its core. Our design language fuses clarity, minimalism, and evocative gradients—creating experiences that move people and unlock creative potential.
-      </p>
-    </div>
+  <!-- About Xoven Co -->
+  <section id="about" class="relative py-36 px-4 md:px-0 max-w-3xl mx-auto text-center">
+    <h2 class="font-montserrat font-bold text-3xl md:text-5xl mb-4 animate-fadeIn">About Xoven Co</h2>
+    <p class="text-lg md:text-2xl text-gray-300 mb-6 animate-fadeIn">
+      Xoven Co is the new paradigm in emotional AI—where branding and machine learning meet empathy. Our philosophy:
+      <span class="bg-gradient-to-r from-teal-400 via-fuchsia-400 to-sky-300 bg-clip-text text-transparent font-semibold">
+        technology with soul changes everything.
+      </span><br><br>
+      With a visual language inspired by the digital avant-garde, we blend expressive design, thoughtful AI, and creative intelligence into transformative tools.
+    </p>
   </section>
 
   <!-- Yuri AI Section -->
-  <section class="product yuri" id="yuri">
-    <div class="container animate-fadeup">
-      <h2>Yuri AI</h2>
-      <h3>Your Emotional AI Companion</h3>
-      <ul>
-        <li>Intuitive emotional support & creative guidance</li>
-        <li>Designed for individuals, founders, students, and visionaries</li>
-        <li>Real-time feedback and personalized insights</li>
-        <li>Adaptive, empathic, always learning</li>
-      </ul>
-      <p>
-        Yuri helps you unlock your best ideas, overcome creative blocks, and thrive in a rapidly changing world—with technology that feels on your side.
-      </p>
+  <section id="yuri-ai" class="py-32 px-4 md:px-0 max-w-5xl mx-auto text-left md:text-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="rounded-2xl p-2 bg-gradient-to-bl from-indigo-500/30 to-purple-800/10 shadow-2xl animate-parallax">
+          <img src="https://dummyimage.com/320x200/2d1f5b/fff&text=YURI+AI" alt="Yuri AI Visual" class="mx-auto rounded-2xl shadow-lg" />
+        </div>
+      </div>
+      <div>
+        <h3 class="font-montserrat text-2xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-l from-purple-400 to-fuchsia-500 mb-3 animate-fadeIn">
+          Yuri AI — Intelligent, Empathetic Personified
+        </h3>
+        <p class="text-lg text-gray-200 mb-4 font-inter animate-fadeIn">
+          Your full-stack, emotionally intelligent assistant—ready to listen, understand, and advise.
+          <span class="inline-block px-2 py-1 rounded bg-indigo-700/60 text-pink-100 font-mono text-sm ml-2">for people, students, founders… for everyone.</span>
+        </p>
+        <ul class="list-disc pl-5 text-base text-gray-400 mb-4 animate-fadeIn">
+          <li>Conversational, expressive, always “gets” your mood</li>
+          <li>Suggests actionable steps, not just passive support</li>
+          <li>Understands emotional context to give relevant advice</li>
+          <li>Integrates with your workflow, calendar, docs, more</li>
+        </ul>
+        <a href="#get-early-access" class="inline-block mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-700 hover:scale-105 transition-transform font-bold animate-fadeIn">
+          Try Yuri AI
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Koven AI Section -->
-  <section class="product koven" id="koven">
-    <div class="container animate-fadeup">
-      <h2>Koven AI</h2>
-      <h3>AI-Powered Brand Strategist</h3>
-      <ul>
-        <li>Automated brand strategy for startups, agencies, and design teams</li>
-        <li>Generates dynamic campaigns and insight-rich narratives</li>
-        <li>Brings deep emotional understanding to every brand touchpoint</li>
-        <li>Drives connection, relevance, and meaning at scale</li>
-      </ul>
-      <p>
-        Koven transforms branding from data-driven to human-centric, delivering campaigns that communicate, resonate, and win hearts.
-      </p>
-    </div>
-  </section>
-
-  <!-- Vision Section -->
-  <section class="vision" id="vision">
-    <div class="container animate-fadeup">
-      <h2>Our Vision</h2>
-      <p>
-        At Xoven Co, we envision a world where technology elevates empathy and meaning. Our mission is to build emotionally aware AI that helps brands and creatives inspire genuine connections, catalyze growth, and leave lasting impact.
-      </p>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <div class="container animate-fadeup">
-      <h2>Let's Connect</h2>
-      <p>Ready to build an emotionally intelligent future together? We’d love to start a conversation.</p>
-      <a href="mailto:hello@xoven.co" class="btn-secondary">hello@xoven.co</a>
-      <div class="socials">
-        <a href="#" aria-label="Twitter"><svg width="24" height="24" fill="currentColor"><use href="#icon-twitter"></use></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg width="24" height="24" fill="currentColor"><use href="#icon-linkedin"></use></svg></a>
-        <a href="#" aria-label="Instagram"><svg width="24" height="24" fill="currentColor"><use href="#icon-instagram"></use></svg></a>
+  <section id="koven-ai" class="py-32 px-4 md:px-0 max-w-5xl mx-auto text-left md:text-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center flex-row-reverse">
+      <div>
+        <div class="rounded-2xl p-2 bg-gradient-to-br from-fuchsia-600/20 to-purple-900/20 shadow-xl animate-parallax">
+          <img src="https://dummyimage.com/320x200/351849/fff&text=KOVEN+AI" alt="Koven AI Visual" class="mx-auto rounded-2xl shadow-lg" />
+        </div>
+      </div>
+      <div>
+        <h3 class="font-montserrat text-2xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-400 to-blue-400 mb-3 animate-fadeIn">
+          Koven AI — AI for Branding Mastery
+        </h3>
+        <p class="text-lg text-gray-200 mb-4 font-inter animate-fadeIn">
+          Koven is a next-generation marketing and branding strategist: builds brand, story, and strategy from scratch, powered by promptflows.
+        </p>
+        <ul class="list-disc pl-5 text-base text-gray-400 mb-4 animate-fadeIn">
+          <li>Creates brand strategy, slogan, identity and campaign blueprints</li>
+          <li>Adaptive: converts market trends into actionable creative plans</li>
+          <li>Ideal for creative agencies, startups, and ambitious founders</li>
+          <li>Output tailored for any medium—digital, social, print</li>
+        </ul>
+        <a href="#get-early-access" class="inline-block mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-purple-700 to-blue-700 hover:scale-105 transition-transform font-bold animate-fadeIn">
+          Try Koven AI
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <span>© Xoven Co 2025</span>
+  <!-- Vision Section -->
+  <section id="vision" class="relative py-36 px-4 md:px-0 max-w-3xl mx-auto text-center">
+    <div class="absolute -left-20 -top-20 w-72 h-72 bg-gradient-to-br from-pink-700/20 via-purple-800/10 to-transparent rounded-full blur-3xl z-0"></div>
+    <h2 class="font-montserrat font-bold text-3xl md:text-5xl mb-4 animate-fadeIn">Our Vision</h2>
+    <p class="text-lg md:text-2xl text-gray-300 mb-6 animate-fadeIn">
+      Xoven Co exists to close the gap between logic and feeling—helping creative people, ideas and brands move
+      <span class="bg-gradient-to-r from-teal-400 to-fuchsia-300 bg-clip-text text-transparent font-semibold">
+        from understanding to true resonance.
+      </span>
+    </p>
+    <p class="text-base text-gray-400 animate-fadeIn">
+      Because the future of AI is not just intelligence—it's caring, context, nuance. Emotional AI for a more human digital world.
+    </p>
+  </section>
+
+  <!-- Motion Story Section with 3D -->
+  <section id="motion-story" class="relative py-48 w-full bg-gradient-to-br from-black/80 via-slate-900/90 to-purple-950/80 overflow-x-hidden">
+    <h2 class="font-montserrat text-center text-4xl font-bold mb-12 animate-fadeIn">The New Emotional Web</h2>
+    <div id="three-canvas" class="relative mx-auto rounded-2xl shadow-xl" style="width:85vw; height:47vw; max-width:1200px; max-height:650px;"></div>
+    <div class="absolute right-8 top-1/2 -translate-y-1/2 z-10 select-none pointer-events-none text-right animate-fadeIn">
+      <span class="text-8xl text-fuchsia-700/30 drop-shadow-xl font-montserrat font-extrabold">∞</span>
     </div>
+    <div class="absolute left-0 bottom-0 w-full h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-10"></div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="get-early-access" class="py-28 text-center text-xl md:text-2xl font-montserrat bg-gradient-to-r from-fuchsia-800/40 to-indigo-800/30">
+    <h3 class="font-montserrat text-3xl md:text-4xl mb-5 bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-400 to-purple-400 animate-fadeIn">
+      Ready to experience AI with emotion?
+    </h3>
+    <form class="max-w-lg mx-auto flex flex-col md:flex-row gap-5 justify-center">
+      <input required type="email" placeholder="Your email address" class="px-6 py-4 rounded-full w-full md:w-auto bg-slate-900/70 placeholder:text-gray-500 border-none outline-none focus:ring-2 focus:ring-pink-400 font-inter transition-all"/>
+      <button type="submit" class="px-8 py-4 rounded-full bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-700 font-bold tracking-wide hover:scale-105 transition-transform">
+        Join Waitlist
+      </button>
+    </form>
+    <p class="mt-6 text-sm text-gray-400">Be the first to access next-gen emotional AI for branding, life and creativity.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 text-center text-sm md:text-base text-gray-400 font-inter bg-black/70 border-t border-gray-800">
+    <div class="flex justify-center gap-5 mb-4">
+      <a href="#" class="hover:text-pink-400 transition">X</a>
+      <a href="#" class="hover:text-pink-400 transition">Instagram</a>
+      <a href="#" class="hover:text-pink-400 transition">LinkedIn</a>
+    </div>
+    <div>© 2025 Xoven Co. All rights reserved.</div>
   </footer>
 
-  <!-- SVG Sprite for Social Icons -->
-  <svg style="display:none;">
-    <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M23 2.999c-.818.363-1.698.608-2.617.719.942-.564 1.667-1.456 2.008-2.521-.883.523-1.861.903-2.887 1.109-1.044-1.114-2.53-1.172-3.598-.119-1.066 1.052-1.166 2.671-.228 3.732-2.448-.123-4.613-1.283-6.065-3.046-.257.442-.404.953-.404 1.496 0 1.032.525 1.946 1.324 2.48-.792-.03-1.536-.243-2.187-.604v.06c0 1.443 1.028 2.648 2.371 2.921-.249.069-.512.105-.784.105-.192 0-.38-.018-.563-.053.382 1.188 1.49 2.051 2.802 2.072-1.029.806-2.32 1.286-3.729 1.286-.243 0-.483-.014-.72-.042 1.329.853 2.91 1.351 4.604 1.351 5.524 0 8.545-4.575 8.545-8.546 0-.13-.003-.259-.008-.389.587-.424 1.096-.953 1.5-1.555z"/></symbol>
-    <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M20.451 20.452h-3.555v-5.569c0-1.328-.023-3.039-1.852-3.039-1.853 0-2.136 1.445-2.136 2.939v5.669h-3.553v-11.5h3.413v1.569h.049c.475-.901 1.637-1.852 3.37-1.852 3.603 0 4.267 2.371 4.267 5.456v6.327zm-16.451-13.831c-1.144 0-2.071-.927-2.071-2.071s.928-2.072 2.071-2.072 2.072.927 2.072 2.072-.928 2.071-2.072 2.071zm1.773 13.831h-3.548v-11.5h3.548v11.5zm17.227-20.452h-18.002c-1.104 0-2 .896-2 2v20.001c0 1.104.896 2 2 2h18c1.104 0 2-.896 2-2v-20.001c0-1.104-.896-2-2-2z"/></symbol>
-    <symbol id="icon-instagram" viewBox="0 0 24 24"><path d="M7.75 2h8.5c3.183 0 5.75 2.567 5.75 5.75v8.5c0 3.183-2.567 5.75-5.75 5.75h-8.5c-3.183 0-5.75-2.567-5.75-5.75v-8.5c0-3.183 2.567-5.75 5.75-5.75zm0-2c-4.418 0-8 3.582-8 8v8c0 4.418 3.582 8 8 8h8c4.418 0 8-3.582 8-8v-8c0-4.418-3.582-8-8-8h-8zm8 5c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3zm-8 13c2.205 0 4.35-1.424 8.001-1.424s5.795 1.424 8.001 1.424v2c-3.134 0-5.924-2.482-8.001-2.482s-4.867 2.482-8.001 2.482v-2zm0-7a5 5 0 1 0 5-5 5.006 5.006 0 0 0-5 5z"/></symbol>
-  </svg>
+  <!-- Motion & Animations JS libs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
 
-  <script src="script.js"></script>
+  <!-- Your custom JS -->
+  <script src="./script.js"></script>
 </body>
 </html>
+
