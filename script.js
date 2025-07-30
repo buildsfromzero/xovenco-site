@@ -1,52 +1,88 @@
-/* Custom Animated Cursor */
-const cursor = document.querySelector('.custom-cursor');
-document.addEventListener('mousemove', e => {
+// Custom Cursor
+const cursor = document.getElementById('custom-cursor');
+
+document.addEventListener('mousemove', (e) => {
   cursor.style.left = e.clientX + 'px';
   cursor.style.top = e.clientY + 'px';
 });
 
-/* Cursor grow effect on links/buttons */
-function setCursorHover(e) {
-  if (e.target.closest('a,button,.cta-btn')) {
-    document.body.classList.add('cursor-hover');
-  } else {
-    document.body.classList.remove('cursor-hover');
-  }
+// Cursor on links/buttons
+const interactiveEls = [
+  ...document.querySelectorAll('a, button, .btn-primary, .btn-secondary')
+];
+
+interactiveEls.forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('link-hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('link-hover'));
+});
+
+// Section Reveal Animations (fade in-up)
+function revealOnScroll() {
+  const reveals = document.querySelectorAll('.animate-fadeup');
+  const windowHeight = window.innerHeight;
+  reveals.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight * 0.92) {
+      el.classList.add('revealed');
+    }
+  });
 }
-document.addEventListener('mouseover', setCursorHover);
-document.addEventListener('mouseout', setCursorHover);
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
-/* Parallax effect for hero background */
-const parallax = document.querySelector('.parallax-bg');
-window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY;
-  // Move parallax background slower than scroll
-  parallax.style.transform = `translateY(${scrolled * 0.22}px) scale(1.02)`;
-});
-
-/* Smooth reveal of sections on scroll */
-const sections = document.querySelectorAll('section, .footer');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.08 });
-
-sections.forEach(sec => observer.observe(sec));
-
-/* Optional: Smooth scroll for anchor links */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const id = this.getAttribute('href').slice(1);
-    const section = document.getElementById(id);
-    if(section){
+// Smooth Scroll for nav links (for anchor)
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href').slice(1);
+    if (!targetId) return;
+    const target = document.getElementById(targetId);
+    if (target) {
+      e.preventDefault();
       window.scrollTo({
-        top: section.offsetTop - 24, // for padding
+        top: target.offsetTop - 64,
         behavior: 'smooth'
-      });
+      })
     }
   });
 });
+
+// GSAP: Parallax hero background + subtle section transitions
+if (typeof gsap !== "undefined") {
+  // Parallax hero
+  gsap.to('.hero', {
+    backgroundPosition: "50% 20%",
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      scrub: true
+    }
+  });
+
+  // Fade in nav on scroll
+  gsap.from(".navbar", {
+    y: -40,
+    opacity: 0,
+    duration: 1.3
+  });
+}
+
+// Optionally: pointer fallback for unsupported browsers
+if(window.matchMedia('(pointer: coarse)').matches){
+  cursor.style.display = "none";
+}
+
+// Parallax effect for hero logo (on pointer move)
+const heroLogo = document.querySelector('.hero-logo');
+if (heroLogo) {
+  heroLogo.addEventListener('mousemove', (evt) => {
+    const { left, width, top, height } = heroLogo.getBoundingClientRect();
+    const x = ((evt.clientX - left) / width - 0.5) * 24;
+    const y = ((evt.clientY - top) / height - 0.5) * 24;
+    heroLogo.style.transform = `rotateX(${ -y }deg) rotateY(${ x }deg) scale(1.05)`;
+  });
+  heroLogo.addEventListener('mouseleave', () => {
+    heroLogo.style.transform = 'none';
+  });
+}
+
